@@ -7,8 +7,9 @@ WORK_DIR =  os.path.join(CONFIG_DIR, './temp')
 INIT_SAVE_DIR = CONFIG_DIR
 
 # XTB Setiings
-PATH = os.path.join(CONFIG_DIR, './xtb6.4.0/bin')
-XTBPATH = os.path.join(CONFIG_DIR, './xtb6.4.0/share/xtb')
+PATHLIB  = 'C:/msys64/mingw64/bin'  # None if not necessary
+PATH = 'D:/programs/xtb-6.4.1/bin'
+XTBPATH = 'D:/programs/xtb-6.4.1/bin/share/xtb'
 OMP_NUM_THREADS = 4
 OMP_STACKSIZE = '1G'
 

@@ -12,9 +12,12 @@
 
 ## 1. 概要
 
-GrimmeのXTB [https://github.com/grimme-lab/xtb] は半経験的な量子化学計算手法で、遷移金属を含むほとんどの元素について利用可能で、低い計算コストで錯体などの妥当な構造を計算することができます。元々はLinux用のプログラムですが、liuyujie714さんによりWindows用のバイナリ [https://github.com/liuyujie714/xtb6.4.0_crest2.11_win64] が公開されています。xtbc3d はこれを利用して、Chem3D上の分子の構造最適化をするプログラムです。
+GrimmeのXTB [https://github.com/grimme-lab/xtb] は半経験的な量子化学計算手法で、遷移金属を含むほとんどの元素について利用可能で、低い計算コストで錯体などの妥当な構造を計算することができます。元々はLinux用のプログラムですが、一応Windowsでもコンパイルして利用できます[https://github.com/npe1011/xtb_windows_build]。xtbc3d はこれを利用して、Chem3D上の分子の構造最適化をするツールです。
 
 ## 2. 更新履歴
+
+#### 2021/8/20
+- XTBのWindowsバイナリの公開が消えてるので対応。
 
 #### 2021/6/10
 - とりあえず完成
@@ -23,7 +26,7 @@ GrimmeのXTB [https://github.com/grimme-lab/xtb] は半経験的な量子化学�
 
 - Windows10
 - Python3 + wxpython + comtypes + pyperclip
-- XTB のWindowsバイナリ
+- XTB のWindowsバイナリ (MSYS2/MinGW-w64で作成するのを想定しています)
 - Chem3D
 
 動作確認は下記の通りの環境でやっています。
@@ -33,7 +36,7 @@ GrimmeのXTB [https://github.com/grimme-lab/xtb] は半経験的な量子化学�
 - wxPython==4.1.1
 - comtypes==1.1.10
 - pyperclip==1.8.1
-- XTB 6.4.0
+- XTB 6.4.1
 - Chem3D 19.0
 
 ## 4. セットアップ
@@ -56,11 +59,12 @@ WORK_DIR =  os.path.join(CONFIG_DIR, './temp')
 INIT_SAVE_DIR = CONFIG_DIR
 ```
 
-下記はXTB計算のための設定です。PATH はxtbバイナリのあるディレクトリ、XTBPATH はパラメータファイルのあるディレクトリを指定します。OMP_NUM_THREADS は並列数、OMP_STACKSIZE は各スレッドのメモリ使用量です。
+下記はXTB計算のための設定です。PATHLIBはMSYS2/MinGW-w64のDLLのあるディレクトリ（static linkのものを使えるなら None にしておく）、PATH はxtbバイナリのあるディレクトリ、XTBPATH はパラメータファイルのあるディレクトリを指定します。OMP_NUM_THREADS は並列数、OMP_STACKSIZE は各スレッドのメモリ使用量です。
 
 ```config.py
-PATH = os.path.join(CONFIG_DIR, './xtb6.4.0/bin')
-XTBPATH = os.path.join(CONFIG_DIR, './xtb6.4.0/share/xtb')
+PATHLIB  = 'C:/msys64/mingw64/bin'  # None if not necessary
+PATH = 'D:/programs/xtb-6.4.1/bin'
+XTBPATH = 'D:/programs/xtb-6.4.1/bin/share/xtb'
 OMP_NUM_THREADS = 4
 OMP_STACKSIZE = '1G'
 ```
