@@ -13,7 +13,7 @@
 
 ## 1. 概要
 
-GrimmeのXTB [https://github.com/grimme-lab/xtb] は半経験的な量子化学計算手法で、遷移金属を含むほとんどの元素について利用可能で、低い計算コストで錯体などの妥当な構造を計算することができます。元々はLinux用のプログラムですが、一応Windowsでもコンパイルして利用できます[https://github.com/npe1011/xtb_windows_build]。xtbc3d はこれを利用して、Chem3D上の分子の構造最適化をするツールです。
+GrimmeのXTB [https://github.com/grimme-lab/xtb] は半経験的な量子化学計算手法で、遷移金属を含むほとんどの元素について利用可能で、低い計算コストで錯体などの妥当な構造を計算することができます。元々はLinux用のプログラムですが、一応Windowsでもコンパイルして利用できます[https://github.com/npe1011/xtb_windows_build] 。xtbc3d はこれを利用して、Chem3D上の分子の構造最適化をするツールです。
 
 ## 2. 更新履歴
 
