@@ -14,6 +14,9 @@ XTB_LOG_FILE = 'xtboptlog.txt'
 def setenv():
     if not config.PATH in os.environ['PATH']:
         os.environ['PATH'] = '{:};{:}'.format(config.PATH, os.environ['PATH'])
+    if config.PATHLIB is not None:
+        if not config.PATHLIB in os.environ['PATH']:
+            os.environ['PATH'] = '{:};{:}'.format(config.PATHLIB, os.environ['PATH'])
     os.environ['XTBPATH'] = config.XTBPATH
     os.environ['OMP_NUM_THREADS'] = str(config.OMP_NUM_THREADS) + ',1'
     os.environ['OMP_STACKSIZE'] = str(config.OMP_STACKSIZE)
